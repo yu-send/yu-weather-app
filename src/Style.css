@@ -1,0 +1,12 @@
+.container {
+  color: #5a6275;
+}
+
+.index {
+  font-weight: lighter;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

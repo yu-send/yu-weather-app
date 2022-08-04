@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YS Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- weather container -->
+      <div class="row mt-5 justify-content-center">
+        <div class="col-6 border border-2 pt-3">
+          <!--Form-->
+          <div class="row mt-3">
+            <div class="col-8">
+              <form action="" id = "search-form">
+                <div class="mb-3 ms-5">
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    placeholder="Search city"
+                    autofocus="on"
+                    autocomplete="off"
+                    id = "search-text"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+<button type="submit" class="btn btn-secondary" id = "search-button">Search</button>
+            </div>
+            
+          </div>
+          <!--City-->
+          <div class="row">
+            <div class="col-6 ms-5"> 
+              <h1 class="mb-0">Kiyv</h1>
+              <div></div>
+              <div id="currentDate">Friday, Jul 1</div>
+              <div id="time">16:00</div>
+              
+            </div>
+
+            <div class="col-4 mt-2">
+              <h2><span id="temperature">25</span> <sup class="index"><a href="" id="celsius">°C</a><span> | </span><a href="" id="fahrenheit">°F</a></sup> </h2>
+<div id="temp-description">Clouds</div>
+              <div>Humidity: <span id="humidity">52</span>%</div>
+              <div>Wind: <span id="wind">3</span> km/h</div>
+            </div>
+          </div>
+
+          <!--Future days-->
+
+          <div class="row row-cols-1 row-cols-md-5 g-3 my-5 mx-3">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Sat</h5>
+                  <p class="card-text">
+                    <div>Jul 2</div> 
+                    <div>☀️</div>
+                    <div>28° 14°</div>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Sun</h5>
+                  <p class="card-text">
+                    <div>Jul 3</div> 
+                    <div>⛅</div>
+                    <div>30° 17°</div>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Mon</h5>
+                  <p class="card-text">
+                    <div>Jul 4</div> 
+                    <div>⛅</div>
+                    <div>32° 19°</div>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tue</h5>
+                  <p class="card-text">
+                    <div>Jul 5</div> 
+                    <div>⛅</div>
+                    <div>33° 21°</div>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Wed</h5>
+                  <p class="card-text">
+                    <div>Jul 6</div> 
+                    <div>🌧️</div>
+                    <div>29° 18°</div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="src/Script.js"></script>
+  </body>
+</html>
