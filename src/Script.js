@@ -62,10 +62,16 @@ function updateUi(response) {
   let wind = document.querySelector("#wind");
   let currectHumidity = response.data.main.humidity;
   let humidity = document.querySelector("#humidity");
+  let icon = response.data.weather[0].icon;
+  let mainIcon = document.querySelector("#mainIcon");
   temp.innerHTML = `${currentTemperature}`;
   tempDescription.innerHTML = `${currentTempDescription}`;
   wind.innerHTML = `${currentWind}`;
   humidity.innerHTML = `${currectHumidity}`;
+  mainIcon.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+  );
 }
 
 function getData(cityName) {
