@@ -8,5 +8,13 @@
 
 a {
   text-decoration: none;
+}
+
+.active {
+  cursor: default;
+  color: inherit;
+}
+
+.active:hover {
   color: inherit;
 }

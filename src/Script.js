@@ -37,6 +37,32 @@ let minutes = String(now.getMinutes()).padStart(2, "0");
 
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+//Degrees
+function changeDegreesToFahrenheit(event) {
+  event.preventDefault();
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temp = document.querySelector("#temperature");
+  temp.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function changeDegreesToCelsius(event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temp = document.querySelector("#temperature");
+  temp.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", changeDegreesToFahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", changeDegreesToCelsius);
+
 //Form
 function search(event) {
   event.preventDefault();
@@ -54,7 +80,8 @@ function search(event) {
 
 function updateUi(response) {
   console.log(response);
-  let currentTemperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let currentTemperature = Math.round(celsiusTemperature);
   let temp = document.querySelector("#temperature");
   let currentTempDescription = response.data.weather[0].main;
   let tempDescription = document.querySelector("#temp-description");
@@ -64,6 +91,7 @@ function updateUi(response) {
   let humidity = document.querySelector("#humidity");
   let icon = response.data.weather[0].icon;
   let mainIcon = document.querySelector("#mainIcon");
+
   temp.innerHTML = `${currentTemperature}`;
   tempDescription.innerHTML = `${currentTempDescription}`;
   wind.innerHTML = `${currentWind}`;
@@ -87,12 +115,3 @@ let form = document.querySelector("#search-button");
 form.addEventListener("click", search);
 let formSubmit = document.querySelector("#search-form");
 formSubmit.addEventListener("submit", search);
-
-//Degrees
-function changeDegrees(event) {
-  event.preventDefault();
-  let degree = document.querySelector("#temperature");
-  degree.innerHTML = `66`;
-}
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", changeDegrees);
