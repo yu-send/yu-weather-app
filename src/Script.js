@@ -111,6 +111,42 @@ function getData(cityName) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(updateUi);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row g-3 my-5 mx-3">`;
+  let forecastDays = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  
+              <div class="col-2 border border-1 rounded py-1 mx-2">
+                <div class="">
+                  <h5 class="weather-forcast-day">${day}</h5>
+                </div>
+                <div class="weather-forcast-date">Jul 2</div>
+                <div>
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt=""
+                    width="42"
+                  />
+                </div>
+                <div class="weather-forcast-temperature">
+                  <span class="weather-forcast-temperature-max">28°</span>
+                  <span class="weather-forcast-temperature-min">14°</span>
+                </div>
+              </div>
+            
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 let form = document.querySelector("#search-button");
 form.addEventListener("click", search);
 let formSubmit = document.querySelector("#search-form");

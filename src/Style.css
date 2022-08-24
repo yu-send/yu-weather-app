@@ -18,3 +18,16 @@ a {
 .active:hover {
   color: inherit;
 }
+
+.weather-forcast {
+  text-align: center;
+}
+
+.weather-forcast-temperature-min {
+  opacity: 0.8;
+}
+
+.forcast-block {
+  border: 1px solid #5a6275;
+  border-radius: 5px;
+}
