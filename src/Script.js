@@ -37,32 +37,6 @@ let minutes = String(now.getMinutes()).padStart(2, "0");
 
 currentTime.innerHTML = `${hours}:${minutes}`;
 
-//Degrees
-function changeDegreesToFahrenheit(event) {
-  event.preventDefault();
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function changeDegreesToCelsius(event) {
-  event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", changeDegreesToFahrenheit);
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", changeDegreesToCelsius);
-
 //Form
 function search(event) {
   event.preventDefault();
@@ -79,15 +53,13 @@ function search(event) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = `46519a0dbe5d76596a4aa56440223836`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
 function updateUi(response) {
-  console.log(response);
   celsiusTemperature = response.data.main.temp;
   let currentTemperature = Math.round(celsiusTemperature);
   let temp = document.querySelector("#temperature");
